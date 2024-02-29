@@ -2,17 +2,17 @@
 
 # Choisissez la commande en fonction de la cible spécifiée
 case "$1" in
-  "production")
-    docker build -t mon_image:production --target production .
-    exec docker run mon_image:production
+  "prod")
+    docker build -t mon_image:prod-latest --target prod .
+    exec docker run mon_image:prod-latest
     ;;
-  "integration")
-    docker build -t mon_image:integration --target integration .
-    exec docker run mon_image:integration
+  "int")
+    docker build -t mon_image:int-latest --target int .
+    exec docker run mon_image:int-latest
     ;;
-  "developpement")
-    docker build -t mon_image:developpement --target developpement .
-    exec docker run mon_image:developpement
+  "devel")
+    docker build -t mon_image:dev-latest --target devel .
+    exec docker run mon_image:dev-latest
     ;;
   *)
     echo "Cible non spécifiée. Utilisation par défaut de la version de production."
